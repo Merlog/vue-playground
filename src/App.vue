@@ -3,12 +3,20 @@
     <h1>{{ msg }}</h1>
     <new-item @createItem="newItem"></new-item>
     <item-grid :items="items" @delete-item="deleteItem"></item-grid>
+    <hr />
+    <h2>Router</h2>
+
+    <app-header></app-header>
+    <hr />
+    <router-view></router-view>
+    <hr />
   </div>
 </template>
 
 <script>
 import itemGrid from "./components/ItemGrid.vue";
 import newItem from "./components/NewItem.vue";
+import Header from "./components/Header.vue";
 
 export default {
   name: "app",
@@ -29,6 +37,7 @@ export default {
   components: {
     itemGrid,
     newItem,
+    appHeader: Header,
   },
 };
 </script>
