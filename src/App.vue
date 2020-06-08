@@ -1,21 +1,21 @@
 <template>
   <div id="app">
     <h1>{{ msg }}</h1>
-    <app-new-item @itemAdded="newItem"></app-new-item>
-    <app-item-grid :items="items" @itemDeleted="deleteItem"></app-item-grid>
+    <new-item @createItem="newItem"></new-item>
+    <item-grid :items="items" @delete-item="deleteItem"></item-grid>
   </div>
 </template>
 
 <script>
-import ItemGrid from "./components/ItemGrid.vue";
-import NewItem from "./components/NewItem.vue";
+import itemGrid from "./components/ItemGrid.vue";
+import newItem from "./components/NewItem.vue";
 
 export default {
   name: "app",
   data() {
     return {
       msg: "todo list",
-      items: ["Sell a car"]
+      items: ["Sell a car"],
     };
   },
   methods: {
@@ -24,16 +24,23 @@ export default {
     },
     deleteItem(index) {
       this.items.splice(index, 1);
-    }
+    },
   },
   components: {
-    appItemGrid: ItemGrid,
-    appNewItem: NewItem
-  }
+    itemGrid,
+    newItem,
+  },
 };
 </script>
 
 <style>
+h1,
+h2 {
+  font-weight: normal;
+}
+</style>
+
+<style scoped>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -42,10 +49,5 @@ export default {
   color: #2c3e50;
   margin-top: 30px;
   padding: 40px;
-}
-
-h1,
-h2 {
-  font-weight: normal;
 }
 </style>

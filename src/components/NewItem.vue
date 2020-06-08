@@ -13,21 +13,21 @@
 
 <script>
 export default {
-  data: function() {
+  data() {
     return {
       item: ""
     };
   },
   methods: {
     createNew() {
-      this.$emit("itemAdded", this.item);
+      this.$emit("createItem", this.item);
       this.item = "";
     }
   }
 };
 </script>
 
-<style>
+<style scoped>
 .form {
   margin-bottom: 40px;
 }
