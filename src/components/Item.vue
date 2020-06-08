@@ -8,8 +8,7 @@
   </div>
 </template>
 
-<script>
-</script>
+<script></script>
 
 <style>
 .panel-body {
@@ -21,7 +20,11 @@
   cursor: pointer;
 }
 
-.item:hover {
+.item:hover .delete {
   background-color: #ffe2e2;
+}
+
+.item:hover .edit {
+  background-color: #e2efff;
 }
 </style>

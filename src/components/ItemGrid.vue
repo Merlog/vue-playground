@@ -1,11 +1,18 @@
 <template>
   <div class="row">
-    <app-item
-      v-for="(item, index) in items"
-      @click.native="deleteItem(index)"
-      :key="index"
-      >{{ item }}</app-item
-    >
+    <app-item v-for="(item, index) in items" :key="index"
+      >{{ item }}
+      <span
+        ><md-icon class="iconBox delete" @click.native="deleteItem(index)"
+          >delete</md-icon
+        ></span
+      >
+      <!-- <span
+        ><md-icon class="iconBox  edit" 
+          >edit</md-icon
+        ></span
+      > -->
+    </app-item>
   </div>
 </template>
 
@@ -30,4 +37,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.iconBox {
+  border: solid 1px #dadada;
+  display: inline;
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+}
+</style>
