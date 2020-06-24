@@ -18,8 +18,10 @@
 
 <script>
 import Item from "./Item.vue";
+import store from "./../store";
 
 export default {
+  store: store,
   props: {
     items: {
       type: Array,
