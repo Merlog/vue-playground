@@ -30,6 +30,7 @@ export default {
   methods: {
     createNew(item) {
       store.commit("newItem", item);
+      this.item = "";
     },
   },
 };
