@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <app-item v-for="(item, index) in items" :key="index"
+    <app-item v-for="(item, index) in todostore" :key="index"
       >{{ item }}
       <span
         ><md-icon class="iconBox delete" @click.native="deleteItem(index)"
@@ -22,18 +22,17 @@ import store from "./../store";
 
 export default {
   store: store,
-  props: {
-    items: {
-      type: Array,
-      required: true,
-    },
-  },
   components: {
     appItem: Item,
   },
   methods: {
     deleteItem(index) {
-      this.$emit("delete-item", index);
+      store.commit("deleteItem", index);
+    },
+  },
+  computed: {
+    todostore() {
+      return store.state.todostore;
     },
   },
 };

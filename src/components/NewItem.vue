@@ -9,7 +9,7 @@
       <div
         class="col-sm-8 col-sm-offset-2 col-xs-12 col-md-6 col-md-offset-3 form-group"
       >
-        <button class="btn btn-primary" @click.prevent="createNew">
+        <button class="btn btn-primary" @click.prevent="createNew(item)">
           Add Item what TO DO
         </button>
       </div>
@@ -28,9 +28,8 @@ export default {
     };
   },
   methods: {
-    createNew() {
-      this.$emit("createItem", this.item);
-      this.item = "";
+    createNew(item) {
+      store.commit("newItem", item);
     },
   },
 };

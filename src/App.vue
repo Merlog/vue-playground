@@ -2,8 +2,8 @@
   <div id="app">
     <the-header></the-header>
     <h1>{{ msg }}</h1>
-    <new-item @createItem="newItem"></new-item>
-    <item-grid :items="todostore" @delete-item="deleteItem"></item-grid>
+    <new-item></new-item>
+    <item-grid></item-grid>
     <hr />
     <h2>Router</h2>
 
@@ -15,39 +15,19 @@
 </template>
 
 <script>
-import theHeader from "./components/TheHeader.vue";
+import theHeader from "./components/TheHeader.vue"; //naming jsem neresil :)
 import itemGrid from "./components/ItemGrid.vue";
 import newItem from "./components/NewItem.vue";
 import Header from "./components/Header.vue";
-import store from "./store";
 
 export default {
   name: "app",
-  store,
   data() {
     return {
       msg: "todo list",
     };
   },
-  methods: {
-    newItem(item) {
-      store.state.todostore.push(item);
-      // store.commit("newItem");
-    },
 
-    deleteItem(index) {
-      store.state.todostore.splice(index, 1);
-      // store.commit("deleteItem", index);
-    },
-  },
-  computed: {
-    count() {
-      return store.state.count;
-    },
-    todostore() {
-      return store.state.todostore;
-    },
-  },
   components: {
     theHeader,
     itemGrid,

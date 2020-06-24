@@ -7,19 +7,14 @@ const store = new Vuex.Store({
   state: {
     todostore: [
       "testuju todostore prvni",
-      "co dal druhej",
+      "co dal... druhej",
       "test treti",
       "mozna ctvrtej ???",
     ],
   },
   mutations: {
-    // newItem(item) {
-    //   console.log(item, "newitem mutations", this.state.todostore);
-    //   this.state.todostore.push(item);
-    // },
-    // deleteItem(index) {
-    //   this.state.todostore.splice(index, 1);
-    // },
+    newItem: (state, item) => state.todostore.push(item),
+    deleteItem: (state, index) => state.todostore.splice(index, 1),
     deleteAll: (state) => (state.todostore = []),
   },
 });
