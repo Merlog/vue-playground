@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex);
 
@@ -12,6 +13,7 @@ const store = new Vuex.Store({
       "mozna ctvrtej ???",
     ],
   },
+  plugins: [createPersistedState()],
   mutations: {
     newItem: (state, item) => state.todostore.push(item),
     deleteItem: (state, index) => state.todostore.splice(index, 1),
