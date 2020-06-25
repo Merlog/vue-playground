@@ -1,8 +1,9 @@
 <template>
   <div id="app">
+    <the-header></the-header>
     <h1>{{ msg }}</h1>
-    <new-item @createItem="newItem"></new-item>
-    <item-grid :items="items" @delete-item="deleteItem"></item-grid>
+    <new-item></new-item>
+    <item-grid></item-grid>
     <hr />
     <h2>Router</h2>
 
@@ -14,6 +15,7 @@
 </template>
 
 <script>
+import theHeader from "./components/TheHeader.vue"; //naming jsem neresil :)
 import itemGrid from "./components/ItemGrid.vue";
 import newItem from "./components/NewItem.vue";
 import Header from "./components/Header.vue";
@@ -23,18 +25,11 @@ export default {
   data() {
     return {
       msg: "todo list",
-      items: ["Sell a car"],
     };
   },
-  methods: {
-    newItem(item) {
-      this.items.push(item);
-    },
-    deleteItem(index) {
-      this.items.splice(index, 1);
-    },
-  },
+
   components: {
+    theHeader,
     itemGrid,
     newItem,
     appHeader: Header,
