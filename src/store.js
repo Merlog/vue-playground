@@ -18,6 +18,7 @@ const store = new Vuex.Store({
     newItem: (state, item) => state.todostore.push(item),
     deleteItem: (state, index) => state.todostore.splice(index, 1),
     deleteAll: (state) => (state.todostore = []),
+    editedItem: (state, index, newValue) => (state.todostore[index] = newValue), // 1b tady ji nedokazu zapsat do arraye todostore
   },
 });
 

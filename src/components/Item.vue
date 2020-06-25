@@ -27,4 +27,7 @@
 .item:hover .edit {
   background-color: #e2efff;
 }
+.item:hover .done {
+  background-color: #e2ffee;
+}
 </style>
